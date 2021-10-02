@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whiteboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="tools">
+        <div class="tool-button">
+            <i class="fas fa-bars" id="menu-option"></i>
+            <i class="fas fa-times hide" id ="menu-close"></i>
+        </div>
+        <div class="tool-box add-animation hide">
+            <div class="tool active-tool" id ="pencil">
+                <img src="./resources-master/NewIcons/Black_Pencil.svg" alt="">
+                <div class="tool-options hide" id="pencil-options">
+                    <input type="range" name="" id="pencilSize" value = "1" min= "1" max = "40">
+                    <div class="pencil-colors">
+                        <div class="red"></div>
+                        <div class="yellow"></div>
+                        <div class="blue"></div>
+                        <div class="black"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="tool" id="eraser">
+                <img src="./resources-master/NewIcons/Eraser.svg" alt="">
+                <div class="tool-options hide" id="eraser-options">
+                    <input type="range" name="" id="eraserSize" value = "1" min= "1" max = "40">
+                </div>
+            </div>
+            <div class="tool" id="sticky">
+                <img src="./resources-master/NewIcons/StickyNote.svg" alt="">
+            </div>
+            <div class="tool" id="upload">
+                <img src="./resources-master/NewIcons/Photo.svg" alt="">
+                <input type="file" name="" id="photo-upload" style="display: none;">
+            </div>
+            <div class="tool" id = "download">
+                <img src="./resources-master/NewIcons/Download.svg" alt="">
+            </div>
+            <div class="tool" id = "undo">
+                <img src="./resources-master/NewIcons/Undo.svg"  alt="">
+            </div>
+            <div class="tool" id = "redo">
+                <img src="./resources-master/NewIcons/Redo.svg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <canvas id="canvas"></canvas>
+    </div>
+
+   <!--  <div class="sticky">
+        <div class="sticky-header">
+            <div class="minimize"></div>
+            <div class="close"></div>
+        </div>
+
+        <div class="sticky-content">
+            <textarea name="" id="stickybox" cols="30" rows="10"></textarea>
+        </div>
+    </div> -->
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js" integrity="sha512-WL6WGKMPBiM9PnHRYIn5YEtq0Z8XP4fkVb4qy7PP4vhmYQErJ/dySyXuFIMDf1eEYCXCrQrMJfkNwKc9gsjTjA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    const socket = io.connect("https://whiteboard-api-new.herokuapp.com/");
+</script>
+<script src="./script.js"></script>
+<script src="./tools.js"></script>
+<script src="./sticky.js"></script>
+<script src="./img.js"></script>
+<script src="./createSticky.js"></script>
+<script src="./animation.js"></script>
+<script src="./socket.js"></script>
+<!-- <script>
+
+    //canvas ke functions => 2d drawing kaise hoti hai
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d'); //getContext('2d'); => context dega jisse drawing ho sakti hai
+
+    //ctx.fillStyle = 'green';
+    //ctx.fillRect(10, 10, 150, 100);
+    //x axis offset, y axis offset, width, height
+
+    ctx.beginPath();
+    ctx.moveTo(10, 10);
+    ctx.lineTo(100, 10);
+    ctx.stroke();
+</script> -->
+</html>

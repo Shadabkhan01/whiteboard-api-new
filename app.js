@@ -3,6 +3,8 @@ const app = express();
 const cors = require("cors");
 app.use(cors());
 
+app.use(express.static('public'));
+
 const http = require("http").createServer(app);
 const io = require("socket.io")(http, {cors: {
     origin: '*',
@@ -24,7 +26,7 @@ io.on("connection", function(socket){
 });
 
 app.get("/", function (req, res) {
-    res.send("<h1>Welcome to home page !!!</h1>");
+    res.redirect("/index.html");
   });
 
   let port = process.env.PORT || 3000;
