@@ -1,7 +1,8 @@
 let toolButton = document.querySelector(".tool-button");
 let toolbox = document.querySelector(".tool-box");
-let menuOption = document.querySelector("#menu-option");
-let menuClose = document.querySelector("#menu-close")
+let hamOption = document.querySelector(".fa-bars");
+let cross = document.querySelector(".fa-times");
+
 
 /* toolButton.addEventListener("click", function(){
     
